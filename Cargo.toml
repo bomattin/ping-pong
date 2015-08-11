@@ -1,0 +1,4 @@
+[package]
+name = "ping-pong"
+version = "0.1.0"
+authors = ["bomattin <bomattin@butler.edu>"]
