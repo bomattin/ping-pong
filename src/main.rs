@@ -12,8 +12,8 @@ let active_player_conns = Vec<ToSocketAddrs>;
 fn main() {
 
     println!("Hello, world!");
-    for stream in listener.incoming() {
-        match stream {
+    for stream_result in listener.incoming() {
+        match stream_result {
             Ok(stream) => {
                 process_stream(stream);
             }
