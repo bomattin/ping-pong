@@ -27,7 +27,7 @@ fn main() {
 
 }
 
-fn process_stream(stream: TcpStream) {
+fn process_stream(stream: TcpStream) -> UpdatePacket {
 
 }
 
