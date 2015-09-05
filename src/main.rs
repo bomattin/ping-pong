@@ -1,7 +1,7 @@
 use std::net::{TcpListener, TcpStream, ToSocketAddrs, Ipv4Addr};
 use std::thread;
 use std::collections::vec_deque::VecDeque;
-
+use std::io::{BufReader,Read};
 
 fn main() {
 
@@ -11,6 +11,7 @@ fn main() {
     // Build a FIFO queue for holding events between ticks.
     // let events = VecDeque::new();
     let active_player_conns: Vec<String> = Vec::new();
+
 
 
     println!("Hello, world!");
@@ -30,7 +31,12 @@ fn main() {
 }
 
 fn process_stream(stream: TcpStream) {
-
+    let mut reader = BufReader::new(stream);
+    let mut result_string: String = String::from("");
+    let size = reader.read_to_string(&mut result_string).unwrap();
+    println!("Read {} bytes. ", size);
+    println!("Message follows: ");
+    println!("{}", result_string);
 }
 
 // Game rules:
