@@ -1,15 +1,17 @@
-use std::net::{TcpListener, TcpStream, ToSocketAddrs};
+use std::net::{TcpListener, TcpStream, ToSocketAddrs, Ipv4Addr};
 use std::thread;
-use std::collection::vec_deque::VecDeque;
+use std::collections::vec_deque::VecDeque;
 
-// Create a listener on the Source Engine port.
-let listener = TcpListener::bind("0.0.0.0:27010");
-
-// Build a FIFO queue for holding events between ticks.
-let events = VecDeque::new();
-let active_player_conns = Vec<ToSocketAddrs>;
 
 fn main() {
+
+    // Create a listener on the Source Engine port.
+    let listener = TcpListener::bind("0.0.0.0:27010").unwrap();
+
+    // Build a FIFO queue for holding events between ticks.
+    // let events = VecDeque::new();
+    let active_player_conns: Vec<String> = Vec::new();
+
 
     println!("Hello, world!");
     for stream_result in listener.incoming() {
@@ -27,7 +29,7 @@ fn main() {
 
 }
 
-fn process_stream(stream: TcpStream) -> UpdatePacket {
+fn process_stream(stream: TcpStream) {
 
 }
 
